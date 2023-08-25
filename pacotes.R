@@ -5,3 +5,4 @@ print("Hello world!")
 a = 3
 b = 4
 a*b
+install.packages("lifecycle", force = TRUE)
