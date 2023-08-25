@@ -108,5 +108,28 @@ e[[1]][2]
 
 # Matrizes - Duas dimensoes um tipo de dado
 
+m <- matrix(1:9, nrow = 3)
+m
+mode(m)
+class(m)
 
+# m[linha, coluna]
+m[1,3]
+m[1,3] <- "a"
+mode(m)
+m
+class(m)
 
+# DataFrames
+
+# Definir area de trabalho
+setwd("C:/Area de Trabalho")
+
+# Importando base de dados
+df <- read.csv("Meu arquivo.csv")
+
+# Analisando um DataFrame
+View(df)
+# Tipos de dados
+str(df)
+summary(df)
