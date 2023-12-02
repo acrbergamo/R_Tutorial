@@ -1,23 +1,19 @@
 ---
 name: Marie
 surname: Curie
-position: Professor
-address: School of Physics & Chemistry, École Normale Supérieure
+position: "Professor"
+address: "School of Physics & Chemistry, École Normale Supérieure"
 phone: +1 22 3333 4444
-pronouns: she/her
-profilepic: null
+pronouns: she
+profilepic: mariecurie.jpg
 www: mariecurie.com
-email: Marie.Curie@ens.fr
+email: "Marie.Curie@ens.fr"
 twitter: mariecurie
 github: mariecurie
 linkedin: mariecurie
-date: 'null'
-aboutme: "Marie is a Polish and naturalized-French physicist and chemist who conducts
-  pioneering research on radioactivity."
-output:
-  pdf_document: default
-  html_document:
-    df_print: paged
+date: "`r format(Sys.time(), '%B %Y')`"
+aboutme: "Marie is a Polish and naturalized-French physicist and chemist who conducts pioneering research on radioactivity."
+output: vitae::twentyseconds
 ---
 
 ```{r setup, include=FALSE}

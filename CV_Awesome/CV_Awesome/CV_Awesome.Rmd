@@ -1,23 +1,19 @@
 ---
 name: Marie
 surname: Curie
-position: Professor
-address: School of Physics & Chemistry, École Normale Supérieure
-phone: +1 22 3333 4444
+position: "Professor"
 pronouns: she/her
-profilepic: null
+address: "School of Physics & Chemistry, École Normale Supérieure"
+phone: +1 22 3333 4444
 www: mariecurie.com
-email: Marie.Curie@ens.fr
+email: "Marie.Curie@ens.fr"
 twitter: mariecurie
 github: mariecurie
 linkedin: mariecurie
-date: 'null'
-aboutme: "Marie is a Polish and naturalized-French physicist and chemist who conducts
-  pioneering research on radioactivity."
+date: "`r format(Sys.time(), '%B %Y')`"
 output:
-  pdf_document: default
-  html_document:
-    df_print: paged
+  vitae::awesomecv:
+    page_total: true
 ---
 
 ```{r setup, include=FALSE}
@@ -40,7 +36,7 @@ tribble(
   "Informal studies", "1889-91", "Flying University", "Warsaw, Poland",
   "Master of Physics", "1893", "Sorbonne Université", "Paris, France",
   "Master of Mathematics", "1894", "Sorbonne Université", "Paris, France"
-) %>% 
+) %>%
   detailed_entries(Degree, Year, Institution, Where)
 ```
 
@@ -51,10 +47,10 @@ tribble(
   ~Year, ~Type, ~Desc,
   1903, "Physics", "Awarded for her work on radioactivity with Pierre Curie and Henri Becquerel",
   1911, "Chemistry", "Awarded for the discovery of radium and polonium"
-) %>% 
+) %>%
   brief_entries(
     glue::glue("Nobel Prize in {Type}"),
-    Year, 
+    Year,
     Desc
   )
 ```
@@ -68,4 +64,3 @@ knitr::write_bib(c("vitae", "tibble"), "packages.bib")
 bibliography_entries("packages.bib") %>%
   arrange(desc(author$family), issued)
 ```
-
