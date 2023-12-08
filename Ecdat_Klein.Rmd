@@ -1,0 +1,76 @@
+---
+title: "Análise de Dados Exploratória - Conjunto de Dados Klein"
+author: "Adriano Bergamo"
+date: "2023-12-08"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+\##"Análise de Dados Exploratória - Conjunto de Dados Klein" O conjunto de dados "Klein" no pacote Ecdat refere-se aos dados da série temporal econômica conhecida como "Klein I" ou "Klein Model I". Este modelo é associado ao economista Lawrence R. Klein, que foi premiado com o Prêmio Nobel de Ciências Econômicas em 1980 por seus trabalhos no campo da modelagem econômica e estatística.
+
+Os dados "Klein" consistem em séries temporais que representam várias variáveis econômicas ao longo do tempo. O conjunto de dados inclui informações sobre diferentes componentes da economia, como consumo, investimento, renda, produção industrial, entre outros. Esses dados são frequentemente usados para análises econômicas e modelagem de séries temporais.
+
+O uso desses dados pode incluir a aplicação de técnicas de análise de séries temporais, como identificação de padrões, previsão, e modelagem de relações entre variáveis econômicas ao longo do tempo. A análise desses dados pode fornecer insights sobre o comportamento dinâmico da economia e é útil para entender as relações causais e as interações entre diferentes setores.
+
+## Carregar o pacote Ecdat se ainda não estiver carregado
+
+```{r cars}
+if (!requireNamespace("Ecdat", quietly = TRUE)) {
+  install.packages("Ecdat")
+}
+library(Ecdat)
+```
+
+## Carregar o conjunto de dados Klein
+
+```{r}
+data("Klein")
+df_klein <- Klein
+```
+
+## Visualizar as primeiras linhas do conjunto de dados
+
+```{r}
+head(df_klein)
+```
+
+## Resumo estatístico das variáveis numéricas
+
+```{r}
+summary(df_klein)
+```
+
+## Resumo estatístico das variáveis numéricas
+
+```{r}
+summary(df_klein)
+```
+
+## Gráficos de séries temporais para algumas variáveis
+
+```{r}
+par(mfrow = c(2, 2))
+
+plot(as.numeric(rownames(df_klein)), df_klein$cons, type = "l", main = "Consumption over Time", xlab = "Time", ylab = "Consumption")
+plot(as.numeric(rownames(df_klein)), df_klein$inv, type = "l", main = "Investment over Time", xlab = "Time", ylab = "Investment")
+plot(as.numeric(rownames(df_klein)), df_klein$gnp, type = "l", main = "GNP over Time", xlab = "Time", ylab = "GNP")
+plot(as.numeric(rownames(df_klein)), df_klein$profit, type = "l", main = "Profit over Time", xlab = "Time", ylab = "Profit")
+
+```
+
+## Matriz de dispersão para algumas variáveis
+
+```{r}
+pairs(df_klein[, c("Consumption", "Investment", "Income", "Production")])
+
+```
+
+## Correlação entre variáveis
+
+```{r}
+correlation_matrix <- cor(df_klein[, c("Consumption", "Investment", "Income", "Production")])
+print(correlation_matrix)
+```
