@@ -5,6 +5,9 @@ if (!requireNamespace("Ecdat", quietly = TRUE)) {
 
 library(Ecdat)
 
+??Ecdat
+
+
 # Carregar o conjunto de dados Mroz
 data("Mroz")
 df <- Mroz
